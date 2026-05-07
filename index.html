@@ -1890,6 +1890,51 @@
       }
     }
   </style>
+
+  <style id="hero-portrait-placement-fix">
+    .hero-image-panel img {
+      right: -22px;
+      bottom: 18px;
+      width: min(106%, 520px);
+      height: 108%;
+      object-position: center bottom;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-image-panel img {
+        right: 50%;
+        bottom: 8px;
+        width: min(78%, 430px);
+        height: 108%;
+        transform: translateX(50%);
+        object-position: center bottom;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-image-panel {
+        min-height: 380px;
+      }
+
+      .hero-image-panel img {
+        width: min(86%, 350px);
+        height: 106%;
+        bottom: 8px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-image-panel {
+        min-height: 350px;
+      }
+
+      .hero-image-panel img {
+        width: min(92%, 320px);
+        height: 104%;
+        bottom: 4px;
+      }
+    }
+  </style>
 </head>
 <body class="home-page">
 
