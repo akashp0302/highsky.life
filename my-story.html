@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akash Panwar | My Story</title>
+  <meta name="description" content="The personal and professional journey roadmap of Akash Panwar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Syne:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style id="mobile-header-fix">
+    .mobile-brand-link { display: none !important; }
+    @media (max-width: 900px) {
+      nav .mobile-brand-link {
+        display: inline-flex !important;
+        align-items: center;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--heading);
+        text-decoration: none;
+        letter-spacing: 0.2px;
+      }
+    }
+  </style>
+  <style>
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(59,130,246,0.14), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(96,165,250,0.1), transparent 28%),
+        linear-gradient(180deg, #05070d 0%, #080b12 48%, #05070d 100%);
+    }
+
+    #particle-canvas {
+      opacity: 0.34;
+    }
+
+    .story-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 150px 24px 96px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-shell .reveal-section {
+      max-width: none;
+      padding: 0 !important;
+    }
+
+    .story-hero {
+      max-width: 980px;
+      margin-bottom: 54px;
+    }
+
+    .story-hero .sec-title {
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .story-subtitle {
+      max-width: 920px;
+      color: rgba(226,232,240,0.78);
+      font-size: clamp(17px, 1.75vw, 22px);
+      line-height: 1.58;
+      margin: 0 0 20px;
+    }
+
+    .story-intro {
+      max-width: 820px;
+      color: rgba(148,163,184,0.92);
+      font-size: 15.5px;
+      line-height: 1.82;
+      margin: 0;
+    }
+
+    .roadmap-section {
+      position: relative;
+      margin-top: 18px;
+      padding: 34px 0 18px;
+    }
+
+    .roadmap-heading {
+      display: block;
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .roadmap-heading h2 {
+      color: #f8fafc;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.8px;
+    }
+
+    .roadmap-heading p {
+      max-width: 920px;
+      color: rgba(148,163,184,0.82);
+      font-size: 14.5px;
+      line-height: 1.7;
+      margin: 12px auto 0;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+      row-gap: 20px;
+      isolation: isolate;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      bottom: 210px;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(59,130,246,0), rgba(96,165,250,0.72), rgba(59,130,246,0.16));
+      box-shadow: 0 0 28px rgba(59,130,246,0.32);
+      z-index: 0;
+    }
+
+    .milestone {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+    }
+
+    .milestone.left {
+      grid-column: 1;
+      padding-right: 28px;
+    }
+
+    .milestone.right {
+      grid-column: 3;
+      padding-left: 28px;
+    }
+
+    .milestone.center {
+      grid-column: 1 / -1;
+      width: min(620px, 100%);
+      justify-self: center;
+      margin: 10px 0;
+    }
+
+    .milestone::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(96,165,250,0.68), rgba(96,165,250,0));
+      box-shadow: 0 0 20px rgba(59,130,246,0.24);
+    }
+
+    .milestone.left::after {
+      right: -38px;
+    }
+
+    .milestone.right::after {
+      left: -38px;
+      transform: rotate(180deg);
+    }
+
+    .milestone.center::after,
+    .branch-card::after {
+      display: none;
+    }
+
+    .node {
+      position: absolute;
+      top: 24px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #bfdbfe 0%, #60a5fa 36%, #1d4ed8 72%);
+      box-shadow: 0 0 0 7px rgba(59,130,246,0.11), 0 0 28px rgba(96,165,250,0.6);
+      border: 1px solid rgba(255,255,255,0.42);
+    }
+
+    .milestone.left .node {
+      right: -57px;
+    }
+
+    .milestone.right .node {
+      left: -57px;
+    }
+
+    .milestone.center .node {
+      display: none;
+    }
+
+    .milestone-card,
+    .branch-card,
+    .lesson-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background:
+        linear-gradient(145deg, rgba(17,24,39,0.78), rgba(8,11,18,0.9)),
+        rgba(8,11,18,0.76);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.045);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .milestone-card {
+      padding: 24px;
+    }
+
+    .milestone-card::before,
+    .branch-card::before,
+    .lesson-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 0%, rgba(59,130,246,0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 36%);
+      pointer-events: none;
+    }
+
+    .milestone-card:hover,
+    .branch-card:hover,
+    .lesson-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96,165,250,0.34);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.36), 0 0 36px rgba(59,130,246,0.1);
+    }
+
+    .phase {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 11px;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(59,130,246,0.11);
+      border: 1px solid rgba(96,165,250,0.18);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .milestone-card h3,
+    .branch-card h3,
+    .lesson-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 10px;
+      color: #f8fafc;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      line-height: 1.16;
+    }
+
+    .milestone-card p,
+    .branch-card p,
+    .lesson-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(226,232,240,0.72);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .split-milestone .milestone-card {
+      border-color: rgba(96,165,250,0.34);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(59,130,246,0.2), transparent 38%),
+        linear-gradient(145deg, rgba(20,30,48,0.86), rgba(8,11,18,0.94));
+      box-shadow: 0 30px 110px rgba(0,0,0,0.44), 0 0 48px rgba(59,130,246,0.14);
+    }
+
+    .split-label {
+      position: relative;
+      z-index: 1;
+      color: rgba(147,197,253,0.76);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 18px;
+    }
+
+    .branch-zone {
+      grid-column: 1 / -1;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+      gap: 0;
+      margin: 14px 0 20px;
+      padding-top: 56px;
+    }
+
+    .branch-zone::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: min(420px, 58%);
+      height: 58px;
+      transform: translateX(-50%);
+      border-top: 2px solid rgba(125,211,252,0.62);
+      border-left: 2px solid rgba(96,165,250,0.52);
+      border-right: 2px solid rgba(96,165,250,0.52);
+      border-radius: 26px 26px 0 0;
+      box-shadow: 0 0 32px rgba(59,130,246,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .branch-zone::after {
+      content: '';
+      position: absolute;
+      top: -34px;
+      left: 50%;
+      width: 2px;
+      height: 34px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(96,165,250,0), rgba(125,211,252,0.7));
+      box-shadow: 0 0 22px rgba(96,165,250,0.26);
+    }
+
+    .branch-card {
+      display: block;
+      padding: 26px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .branch-card.professional {
+      grid-column: 1;
+      margin-right: 18px;
+    }
+
+    .branch-card.entrepreneurial {
+      grid-column: 3;
+      margin-left: 18px;
+    }
+
+    .branch-card:focus-visible {
+      outline: 2px solid rgba(96,165,250,0.72);
+      outline-offset: 4px;
+    }
+
+    .branch-card .click-hint {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: rgba(191,219,254,0.86);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .branch-card .click-hint::after {
+      content: '->';
+      color: #60a5fa;
+      transition: transform 0.25s ease;
+    }
+
+    .branch-card:hover .click-hint,
+    .branch-card:focus-visible .click-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .branch-card:hover .click-hint::after,
+    .branch-card:focus-visible .click-hint::after {
+      transform: translateX(4px);
+    }
+
+    .branch-label {
+      position: relative;
+      z-index: 1;
+      color: rgba(147,197,253,0.82);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .now-milestone {
+      margin-top: 8px;
+    }
+
+    .lessons-section {
+      margin-top: 80px;
+    }
+
+    .lessons-head {
+      max-width: 780px;
+      margin-bottom: 28px;
+    }
+
+    .lessons-head h2 {
+      color: #f8fafc;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+    }
+
+    .lessons-head p {
+      color: rgba(148,163,184,0.86);
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .lesson-card {
+      padding: 26px;
+      min-height: 180px;
+    }
+
+    @media (max-width: 980px) {
+      .story-shell {
+        padding: 132px 20px 84px;
+      }
+
+      .roadmap-heading p {
+        white-space: normal;
+      }
+
+      .timeline,
+      .branch-zone {
+        grid-template-columns: 26px minmax(0, 1fr);
+        row-gap: 16px;
+      }
+
+      .timeline::before {
+        left: 13px;
+        top: 22px;
+        bottom: 22px;
+        transform: none;
+      }
+
+      .milestone,
+      .milestone.left,
+      .milestone.right,
+      .milestone.center,
+      .branch-card.professional,
+      .branch-card.entrepreneurial {
+        grid-column: 2;
+        width: auto;
+        justify-self: stretch;
+        padding: 0 0 0 18px;
+        margin: 0;
+      }
+
+      .milestone::after {
+        left: -18px !important;
+        right: auto !important;
+        width: 18px;
+        top: 32px;
+        transform: none !important;
+        background: linear-gradient(90deg, rgba(96,165,250,0.68), rgba(96,165,250,0));
+      }
+
+      .milestone.center::after {
+        display: block;
+      }
+
+      .milestone .node,
+      .milestone.left .node,
+      .milestone.right .node {
+        left: -33px;
+        right: auto;
+        display: block;
+      }
+
+      .milestone.center .node {
+        display: block;
+      }
+
+      .branch-zone {
+        grid-column: 1 / -1;
+        gap: 16px;
+        padding-top: 0;
+        margin: 0;
+      }
+
+      .branch-zone::before {
+        display: none;
+      }
+
+      .branch-zone::after {
+        display: none;
+      }
+
+      .branch-card {
+        margin-top: 0;
+      }
+
+      .lessons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .story-shell {
+        padding: 118px 14px 68px;
+      }
+
+      .story-hero {
+        margin-bottom: 42px;
+      }
+
+      .story-hero .sec-title {
+        font-size: clamp(46px, 16vw, 64px);
+      }
+
+      .story-subtitle {
+        font-size: 16px;
+      }
+
+      .milestone-card,
+      .branch-card,
+      .lesson-card {
+        border-radius: 20px;
+        padding: 20px;
+      }
+
+      .milestone-card h3,
+      .branch-card h3,
+      .lesson-card h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="glow-orb" style="top:10%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,0.12),transparent 70%);animation-duration:12s;animation-delay:0s;"></div>
+  <div class="glow-orb" style="top:40%;left:80%;width:350px;height:350px;background:radial-gradient(circle,rgba(30,64,175,0.11),transparent 70%);animation-duration:15s;animation-delay:3s;"></div>
+
+  <nav>
+    <a class="mobile-brand-link" href="index.html">Akash Panwar</a>
+    <div id="desktop-nav">
+      <a class="nav-link brand-link" href="index.html">Akash Panwar</a>
+      <a class="nav-link active" href="my-story.html">my story</a>
+      <a class="nav-link" href="professional-work.html">professional work</a>
+      <a class="nav-link" href="auto-decode.html">auto decode</a>
+      <a class="nav-link" href="contact.html">contact</a>
+    </div>
+    <button class="icon-btn" id="mobile-toggle" title="Menu" style="display:none;">&#9776;</button>
+  </nav>
+
+  <div id="mobile-nav">
+    <a class="nav-link active" href="my-story.html">my story</a>
+    <a class="nav-link" href="professional-work.html">professional work</a>
+    <a class="nav-link" href="auto-decode.html">auto decode</a>
+    <a class="nav-link" href="contact.html">contact</a>
+  </div>
+
+  <main class="story-shell">
+    <section class="reveal-section story-hero">
+      <h1 class="sec-title">My Story</h1>
+      <p class="story-subtitle">A journey shaped by curiosity, early responsibility, continuous learning, business analysis, workflow automation, and the drive to build something meaningful.</p>
+      <p class="story-intro">This page is a living roadmap of my journey &mdash; from early education and first work experiences to professional growth, digital problem solving, and the entrepreneurial path I continue to build.</p>
+    </section>
+
+    <section class="reveal-section roadmap-section">
+      <div class="roadmap-heading">
+        <h2>Journey Roadmap</h2>
+        <p>Milestones that shaped how I think, work, solve problems, and keep building forward.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="milestone left">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">1995</div>
+            <h3>The Beginning</h3>
+            <p>Born in Nala Village, Shamli, India &mdash; the starting point of my journey.</p>
+          </div>
+        </article>
+
+        <article class="milestone right">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">Early Education</div>
+            <h3>First Steps in Learning</h3>
+            <p>Started early education from Angels Public School, from Pre-Nursery to 1st standard.</p>
+          </div>
+        </article>
+
+        <article class="milestone left">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">Primary School</div>
+            <h3>Foundation Years</h3>
+            <p>Studied from 2nd to 5th standard at Meerut Public School.</p>
+          </div>
+        </article>
+
+        <article class="milestone right">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2012</div>
+            <h3>Completed 10th</h3>
+            <p>Completed 10th standard from Dewan Public School, Meerut.</p>
+          </div>
+        </article>
+
+        <article class="milestone left">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2014</div>
+            <h3>Completed 12th</h3>
+            <p>Completed 12th standard from Translam Academy International, Meerut.</p>
+          </div>
+        </article>
+
+        <article class="milestone right">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2015</div>
+            <h3>First Professional Exposure</h3>
+            <p>Joined Vertex BPO and worked in Flipkart customer support while pursuing studies. This phase gave me early exposure to communication, customer handling, and real-world problem solving.</p>
+          </div>
+        </article>
+
+        <article class="milestone left">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2016</div>
+            <h3>Customer Support Growth</h3>
+            <p>Switched to Concentrix and worked in JIO customer support while continuing undergraduate studies. This helped me build patience, process understanding, and confidence in handling customer issues.</p>
+          </div>
+        </article>
+
+        <article class="milestone right">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2017</div>
+            <h3>Graduation</h3>
+            <p>Completed undergraduate studies from Pt. Deen Dayal Upadhyay Management College, Meerut.</p>
+          </div>
+        </article>
+
+        <article class="milestone left">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2020</div>
+            <h3>Post Graduation</h3>
+            <p>Completed post-graduation from MIET, Meerut, with a stronger foundation for business, technology, and professional growth.</p>
+          </div>
+        </article>
+
+        <article class="milestone right">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2020</div>
+            <h3>Business Analyst Career Start</h3>
+            <p>Started my Business Analyst career at Web Wheel Technologies, moving from customer-facing experience into structured business problem solving.</p>
+          </div>
+        </article>
+
+        <article class="milestone left">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2022</div>
+            <h3>SDG Corporation</h3>
+            <p>Joined SDG Corporation and expanded into business analysis, documentation, stakeholder management, workflow design, and solution delivery.</p>
+          </div>
+        </article>
+
+        <article class="milestone center split-milestone">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">2025</div>
+            <h3>A New Branch Begins</h3>
+            <p>In 2025, my journey started expanding into two strong directions &mdash; professional growth and personal interest through entrepreneurship.</p>
+            <div class="split-label">Two directions, one long-term path</div>
+          </div>
+        </article>
+
+        <div class="branch-zone">
+          <a class="branch-card professional" href="professional-work.html" aria-label="Open Professional Work page">
+            <div class="branch-label">Professional Growth</div>
+            <h3>Senior Business Analyst &amp; Workflow Automation</h3>
+            <p>Continued growing as a Senior Business Analyst, working on business requirements, process improvement, UAT, documentation, Power Platform, and workflow automation.</p>
+            <span class="click-hint">Click to know more</span>
+          </a>
+
+          <a class="branch-card entrepreneurial" href="auto-decode.html" aria-label="Open Auto Decode page">
+            <div class="branch-label">Personal Interest / Entrepreneurial Journey</div>
+            <h3>Auto Decode</h3>
+            <p>Started building Auto Decode as a knowledge-led automobile platform focused on spare parts awareness, honest guidance, content, digital commerce, and community building.</p>
+            <span class="click-hint">Click to know more</span>
+          </a>
+        </div>
+
+        <article class="milestone center now-milestone">
+          <span class="node"></span>
+          <div class="milestone-card">
+            <div class="phase">Now</div>
+            <h3>Building the Next Version</h3>
+            <p>Today, I am focused on business analysis, workflow automation, Power Platform solutions, Auto Decode, and long-term personal growth.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="reveal-section lessons-section">
+      <div class="lessons-head">
+        <h2>What This Journey Taught Me</h2>
+        <p>A few principles that keep showing up across education, customer support, business analysis, automation, and entrepreneurship.</p>
+      </div>
+
+      <div class="lessons-grid">
+        <article class="lesson-card">
+          <div class="phase">01</div>
+          <h3>Clarity over complexity</h3>
+          <p>Good work becomes easier when the problem, process, and expected outcome are clearly understood.</p>
+        </article>
+        <article class="lesson-card">
+          <div class="phase">02</div>
+          <h3>Real-world problem solving</h3>
+          <p>Every customer issue, workflow gap, and project challenge is a chance to understand how systems actually behave.</p>
+        </article>
+        <article class="lesson-card">
+          <div class="phase">03</div>
+          <h3>Continuous learning and building</h3>
+          <p>Progress compounds through small improvements, honest reflection, and the discipline to keep building.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="display:flex;justify-content:center;gap:28px;margin-bottom:18px;flex-wrap:wrap;">
+      <a class="footer-link" href="index.html">home</a>
+      <a class="footer-link" href="my-story.html">my story</a>
+      <a class="footer-link" href="professional-work.html">professional work</a>
+      <a class="footer-link" href="auto-decode.html">auto decode</a>
+      <a class="footer-link" href="contact.html">contact</a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);font-weight:400;">&copy; 2026 Akash Panwar &mdash; A personal portfolio of work, writing, and learning</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

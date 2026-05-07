@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akash Panwar | Contact</title>
+  <meta name="description" content="Contact Akash Panwar for professional opportunities, collaboration, workflow automation discussions, and business analysis conversations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Syne:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style id="mobile-header-fix">
+    .mobile-brand-link { display: none !important; }
+    @media (max-width: 900px) {
+      nav .mobile-brand-link {
+        display: inline-flex !important;
+        align-items: center;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--heading);
+        text-decoration: none;
+        letter-spacing: 0.2px;
+      }
+    }
+  </style>
+  <style>
+    body {
+      background:
+        radial-gradient(circle at 15% 12%, rgba(59,130,246,0.13), transparent 32%),
+        radial-gradient(circle at 84% 18%, rgba(96,165,250,0.1), transparent 30%),
+        linear-gradient(180deg, #05070d 0%, #080b12 52%, #05070d 100%);
+    }
+
+    #particle-canvas {
+      opacity: 0.38;
+    }
+
+    .contact-shell {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 150px 24px 96px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-shell .reveal-section {
+      max-width: none;
+      padding: 0 !important;
+    }
+
+    .contact-hero {
+      max-width: 1080px;
+      margin-bottom: 42px;
+    }
+
+    .contact-hero .sec-title {
+      font-size: clamp(42px, 6vw, 72px);
+      letter-spacing: -1.4px;
+      line-height: 0.98;
+      margin-bottom: 18px;
+    }
+
+    .contact-hero .sec-desc {
+      max-width: 1040px;
+      color: rgba(226,232,240,0.7);
+      font-size: clamp(15.5px, 1.45vw, 18px);
+      line-height: 1.75;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-glass-card,
+    .contact-form-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background:
+        linear-gradient(145deg, rgba(17,24,39,0.78), rgba(8,11,18,0.88)),
+        rgba(8,11,18,0.72);
+      box-shadow: 0 34px 100px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.05);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+    }
+
+    .contact-glass-card::before,
+    .contact-form-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(59,130,246,0.16), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 34%);
+      pointer-events: none;
+    }
+
+    .contact-glass-card {
+      padding: 34px;
+      min-height: 100%;
+    }
+
+    .contact-form-card {
+      padding: 34px;
+    }
+
+    .contact-card-content,
+    .contact-form-card form,
+    .contact-form-card .form-notice {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card-title {
+      color: #f8fafc;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.12;
+      margin: 0 0 10px;
+    }
+
+    .contact-card-note {
+      color: rgba(226,232,240,0.62);
+      font-size: 14.5px;
+      line-height: 1.7;
+      margin: 0 0 28px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-card-wrap {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .info-card-wrap.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      color: rgba(226,232,240,0.78);
+      text-decoration: none;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.065);
+      background: rgba(255,255,255,0.035);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .contact-row:hover,
+    .contact-row:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(96,165,250,0.36);
+      background: rgba(59,130,246,0.085);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.22), 0 0 28px rgba(59,130,246,0.08);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      color: #bfdbfe;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(96,165,250,0.16);
+    }
+
+    .contact-label {
+      display: block;
+      color: rgba(148,163,184,0.92);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .contact-value {
+      display: block;
+      color: #f8fafc;
+      font-size: 14.5px;
+      font-weight: 650;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-hint {
+      display: block;
+      color: rgba(147,197,253,0.72);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 5px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .copyable {
+      cursor: copy;
+    }
+
+    .copyable:hover .copy-hint {
+      opacity: 1;
+    }
+
+    .contact-form-title {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 8px;
+      color: #f8fafc;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.12;
+    }
+
+    .contact-form-subtitle {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 26px;
+      color: rgba(226,232,240,0.62);
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+
+    #copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(59,130,246,0.96);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      box-shadow: 0 12px 34px rgba(59,130,246,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    #copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .contact-input {
+      min-height: 54px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(5,7,13,0.58);
+      color: #f8fafc;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    textarea.contact-input {
+      min-height: 144px;
+    }
+
+    .contact-input::placeholder {
+      color: rgba(148,163,184,0.72);
+    }
+
+    .contact-input:focus {
+      border-color: rgba(96,165,250,0.72);
+      background: rgba(5,7,13,0.78);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    }
+
+    .contact-input.valid {
+      border-color: rgba(16,185,129,0.55) !important;
+    }
+
+    .contact-input.invalid {
+      border-color: rgba(239,68,68,0.55) !important;
+    }
+
+    .field-wrap {
+      position: relative;
+    }
+
+    .field-check {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .field-wrap.valid .field-check,
+    .field-wrap.invalid .field-check {
+      opacity: 1;
+    }
+
+    textarea + .field-check {
+      top: 18px;
+      transform: none;
+    }
+
+    #char-counter {
+      font-size: 11.5px;
+      color: rgba(148,163,184,0.84);
+      text-align: right;
+      margin-top: -6px;
+      transition: color 0.2s ease;
+    }
+
+    #char-counter.warn {
+      color: #f59e0b;
+    }
+
+    #char-counter.over {
+      color: #ef4444;
+    }
+
+    #submit-btn {
+      width: fit-content;
+      min-height: 52px;
+      padding: 0 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      color: #fff;
+      box-shadow: 0 16px 42px rgba(37,99,235,0.32);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+    }
+
+    #submit-btn:hover,
+    #submit-btn:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 54px rgba(37,99,235,0.4);
+    }
+
+    #submit-btn.loading {
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    #submit-btn .btn-spinner {
+      display: none;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-right: 8px;
+    }
+
+    #submit-btn.loading .btn-spinner {
+      display: inline-block;
+    }
+
+    .form-helper {
+      color: rgba(148,163,184,0.86);
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .form-notice {
+      margin-bottom: 18px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 980px) {
+      .contact-shell {
+        padding: 132px 20px 80px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-shell {
+        padding: 118px 14px 64px;
+      }
+
+      .contact-glass-card,
+      .contact-form-card {
+        border-radius: 24px;
+        padding: 24px;
+      }
+
+      .contact-row {
+        grid-template-columns: 38px minmax(0, 1fr);
+        padding: 13px;
+      }
+
+      .contact-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      #submit-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="copy-toast">Copied to clipboard!</div>
+  <div id="scroll-progress"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="glow-orb" style="top:8%;left:-6%;width:360px;height:360px;background:radial-gradient(circle,rgba(59,130,246,0.11),transparent 70%);animation-duration:12s;animation-delay:0s;"></div>
+  <div class="glow-orb" style="top:62%;left:82%;width:320px;height:320px;background:radial-gradient(circle,rgba(59,130,246,0.08),transparent 70%);animation-duration:16s;animation-delay:2s;"></div>
+
+  <nav>
+    <a class="mobile-brand-link" href="index.html">Akash Panwar</a>
+    <div id="desktop-nav">
+      <a class="nav-link brand-link" href="index.html">Akash Panwar</a>
+      <a class="nav-link" href="my-story.html">my story</a>
+      <a class="nav-link" href="professional-work.html">professional work</a>
+      <a class="nav-link" href="auto-decode.html">auto decode</a>
+      <a class="nav-link active" href="contact.html">contact</a>
+    </div>
+    <button class="icon-btn" id="mobile-toggle" title="Menu" style="display:none;">&#9776;</button>
+  </nav>
+
+  <div id="mobile-nav">
+    <a class="nav-link" href="my-story.html">my story</a>
+    <a class="nav-link" href="professional-work.html">professional work</a>
+    <a class="nav-link" href="auto-decode.html">auto decode</a>
+    <a class="nav-link active" href="contact.html">contact</a>
+  </div>
+
+  <main class="contact-shell">
+    <section class="reveal-section contact-hero">
+      <h1 class="sec-title">Let's Connect</h1>
+      <p class="sec-desc">For professional opportunities, collaborations, workflow automation discussions, or business analysis conversations &mdash; feel free to reach out.</p>
+    </section>
+
+    <section class="reveal-section" id="contact-section">
+      <div class="contact-layout contact-grid">
+        <article class="contact-glass-card">
+          <div class="contact-card-content">
+            <h2 class="contact-card-title">Contact details and social links</h2>
+            <p class="contact-card-note">Use email or phone for direct conversations, or connect through the professional and social channels below.</p>
+
+            <div class="contact-list">
+              <div class="info-card-wrap" style="transition-delay:0s;">
+                <a href="mailto:panwareaakash07@gmail.com" class="contact-row copyable" data-copy="panwareaakash07@gmail.com">
+                  <span class="contact-icon">@</span>
+                  <span>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">panwareaakash07@gmail.com</span>
+                    <span class="copy-hint">Click to copy</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="info-card-wrap" style="transition-delay:0.06s;">
+                <a href="tel:+917060505458" class="contact-row copyable" data-copy="+91 7060505458">
+                  <span class="contact-icon">ph</span>
+                  <span>
+                    <span class="contact-label">Phone</span>
+                    <span class="contact-value">+91 7060505458</span>
+                    <span class="copy-hint">Click to copy</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="info-card-wrap" style="transition-delay:0.12s;">
+                <a href="https://www.linkedin.com/in/akash-panwar-21ab03112/" target="_blank" rel="noopener noreferrer" class="contact-row">
+                  <span class="contact-icon">in</span>
+                  <span>
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">linkedin.com/in/akash-panwar-21ab03112</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="info-card-wrap" style="transition-delay:0.18s;">
+                <a href="https://www.instagram.com/_akash_panwar_/" target="_blank" rel="noopener noreferrer" class="contact-row">
+                  <span class="contact-icon">ig</span>
+                  <span>
+                    <span class="contact-label">Instagram</span>
+                    <span class="contact-value">instagram.com/_akash_panwar_</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="info-card-wrap" style="transition-delay:0.24s;">
+                <a href="https://x.com/_Akash_panwar_" target="_blank" rel="noopener noreferrer" class="contact-row">
+                  <span class="contact-icon">x</span>
+                  <span>
+                    <span class="contact-label">X / Twitter</span>
+                    <span class="contact-value">x.com/_Akash_panwar_</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <section class="contact-form-card">
+          <h2 class="contact-form-title">Send a message</h2>
+          <p class="contact-form-subtitle">Share a short note with context, and I will get back as soon as possible.</p>
+          <div id="form-notice" class="form-notice"></div>
+          <form id="contact-form" method="POST" action="contact.php" style="display:flex;flex-direction:column;gap:14px;" novalidate>
+            <div class="field-wrap">
+              <input type="text" id="f-name" name="contact_name" class="contact-input" placeholder="Your Name" required maxlength="100">
+              <span class="field-check"></span>
+            </div>
+
+            <div class="field-wrap">
+              <input type="email" id="f-email" name="contact_email" class="contact-input" placeholder="Your Email" required maxlength="120">
+              <span class="field-check"></span>
+            </div>
+
+            <div class="field-wrap">
+              <input type="text" id="f-subject" name="contact_subject" class="contact-input" placeholder="Subject" required maxlength="150">
+              <span class="field-check"></span>
+            </div>
+
+            <div class="field-wrap">
+              <textarea id="f-message" name="contact_message" class="contact-input" placeholder="Your Message" rows="5" required maxlength="3000" style="resize:vertical;padding-right:40px;"></textarea>
+              <span class="field-check" style="top:16px;transform:none;"></span>
+            </div>
+            <div id="char-counter">0 / 3000</div>
+
+            <input type="text" name="company_website" value="" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;">
+            <p class="form-helper">For professional opportunities or collaboration discussions, please share a brief message with context.</p>
+            <button type="submit" id="submit-btn" class="btn">
+              <span class="btn-spinner"></span>
+              <span class="btn-label">Send Message</span>
+            </button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="display:flex;justify-content:center;gap:28px;margin-bottom:18px;flex-wrap:wrap;">
+      <a class="footer-link" href="index.html">home</a>
+      <a class="footer-link" href="my-story.html">my story</a>
+      <a class="footer-link" href="professional-work.html">professional work</a>
+      <a class="footer-link" href="auto-decode.html">auto decode</a>
+      <a class="footer-link" href="contact.html">contact</a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);font-weight:400;">&copy; 2026 Akash Panwar &mdash; A personal portfolio for professional work, business thinking, and entrepreneurial learning.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    var cardObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('.info-card-wrap').forEach(function (w) {
+          setTimeout(function () { w.classList.add('visible'); },
+            parseFloat(w.style.transitionDelay || 0) * 1000);
+        });
+        cardObs.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    var cs = document.getElementById('contact-section');
+    if (cs) cardObs.observe(cs);
+
+    var toast = document.getElementById('copy-toast');
+    var toastTimer;
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+    }
+
+    document.querySelectorAll('.copyable').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        var text = el.dataset.copy;
+        if (!text) return;
+        e.preventDefault();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            showToast('Copied: ' + text);
+          });
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast('Copied: ' + text);
+        }
+      });
+    });
+
+    var msgArea = document.getElementById('f-message');
+    var counter = document.getElementById('char-counter');
+    var maxLen = 3000;
+    if (msgArea && counter) {
+      msgArea.addEventListener('input', function () {
+        var len = msgArea.value.length;
+        counter.textContent = len + ' / ' + maxLen;
+        counter.className = len > maxLen * 0.9
+          ? (len >= maxLen ? 'over' : 'warn')
+          : '';
+      });
+    }
+
+    function validateField(input) {
+      var wrap = input.closest('.field-wrap');
+      var check = wrap ? wrap.querySelector('.field-check') : null;
+      var valid = false;
+
+      if (input.type === 'email') {
+        valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+      } else {
+        valid = input.value.trim().length > 0;
+      }
+
+      input.classList.toggle('valid', valid);
+      input.classList.toggle('invalid', !valid && input.value.length > 0);
+      if (wrap) {
+        wrap.classList.toggle('valid', valid);
+        wrap.classList.toggle('invalid', !valid && input.value.length > 0);
+      }
+      if (check) {
+        check.textContent = valid ? '✓' : (input.value.length > 0 ? '✕' : '');
+        check.style.color = valid ? '#10b981' : '#ef4444';
+      }
+    }
+
+    ['f-name','f-email','f-subject','f-message'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('blur', function () { validateField(el); });
+      el.addEventListener('input', function () {
+        if (el.classList.contains('invalid') || el.classList.contains('valid')) {
+          validateField(el);
+        }
+      });
+    });
+
+    var form = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+    var btnLabel = submitBtn ? submitBtn.querySelector('.btn-label') : null;
+    if (form && submitBtn) {
+      form.addEventListener('submit', function (e) {
+        var allValid = true;
+        ['f-name','f-email','f-subject','f-message'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            validateField(el);
+            if (!el.classList.contains('valid')) allValid = false;
+          }
+        });
+        if (!allValid) {
+          e.preventDefault();
+          return;
+        }
+        submitBtn.classList.add('loading');
+        if (btnLabel) btnLabel.textContent = 'Sending...';
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

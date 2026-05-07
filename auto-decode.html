@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akash Panwar | Auto Decode</title>
+  <meta name="description" content="Auto Decode as Akash Panwar's entrepreneurial journey and digital business learning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Syne:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style id="mobile-header-fix">
+    .mobile-brand-link { display: none !important; }
+    @media (max-width: 900px) {
+      nav .mobile-brand-link {
+        display: inline-flex !important;
+        align-items: center;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--heading);
+        text-decoration: none;
+        letter-spacing: 0.2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="glow-orb" style="top:12%;left:-6%;width:390px;height:390px;background:radial-gradient(circle,rgba(59,130,246,0.10),transparent 70%);animation-duration:14s;animation-delay:0s;"></div>
+  <div class="glow-orb" style="top:58%;left:80%;width:340px;height:340px;background:radial-gradient(circle,rgba(59,130,246,0.10),transparent 70%);animation-duration:16s;animation-delay:2s;"></div>
+
+  <nav>
+    <a class="mobile-brand-link" href="index.html">Akash Panwar</a>
+    <div id="desktop-nav">
+      <a class="nav-link brand-link" href="index.html">Akash Panwar</a>
+      <a class="nav-link" href="my-story.html">my story</a>
+      <a class="nav-link" href="professional-work.html">professional work</a>
+      <a class="nav-link active" href="auto-decode.html">auto decode</a>
+      <a class="nav-link" href="contact.html">contact</a>
+    </div>
+    <button class="icon-btn" id="mobile-toggle" title="Menu" style="display:none;">&#9776;</button>
+  </nav>
+
+  <div id="mobile-nav">
+    <a class="nav-link" href="my-story.html">my story</a>
+    <a class="nav-link" href="professional-work.html">professional work</a>
+    <a class="nav-link active" href="auto-decode.html">auto decode</a>
+    <a class="nav-link" href="contact.html">contact</a>
+  </div>
+
+  <section class="reveal-section" style="padding-top:150px;">
+    <div class="eyebrow">Auto Decode</div>
+    <h1 class="sec-title" style="max-width:760px;">Learning by Building a Real Digital Business</h1>
+    <p class="sec-desc" style="max-width:760px;">A look at the venture I co-founded, what it does, what I do inside it, and what working on it has taught me.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal-section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;" class="ad-grid">
+      <div>
+        <h2 class="sec-title" style="font-size:36px;">What Auto Decode Is</h2>
+        <p style="font-size:16px;color:var(--text);line-height:1.9;margin-top:18px;">Auto Decode is an automotive spare parts and content-led commerce platform focused on helping car owners make confident decisions through genuine parts, fitment guidance, and practical automotive education.</p>
+      </div>
+
+      <div>
+        <h2 class="sec-title" style="font-size:36px;">My Role</h2>
+        <p style="font-size:16px;color:var(--text);line-height:1.9;margin-top:18px;">As a co-founder, I work across customer understanding, content strategy, product discovery, operations, digital experience, and business process improvement. Auto Decode gives me a live environment to apply business analysis thinking outside corporate projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal-section">
+    <div class="eyebrow">What This Venture Taught Me</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;" class="blog-grid">
+      <div class="card tilt-card" style="padding:30px;">
+        <h3 style="font-size:20px;margin-bottom:12px;">Problem Solving</h3>
+        <p style="font-size:15px;color:var(--text);line-height:1.8;">Focused on reducing friction in spare-parts discovery, decision confidence, and post-purchase reliability.</p>
+      </div>
+      <div class="card tilt-card" style="padding:30px;">
+        <h3 style="font-size:20px;margin-bottom:12px;">Content-Led Commerce</h3>
+        <p style="font-size:15px;color:var(--text);line-height:1.8;">Used practical content and knowledge-sharing to support informed customer choices and long-term trust.</p>
+      </div>
+      <div class="card tilt-card" style="padding:30px;">
+        <h3 style="font-size:20px;margin-bottom:12px;">Learning Through Execution</h3>
+        <p style="font-size:15px;color:var(--text);line-height:1.8;">Applied iterative thinking to improve workflows, operations, and business decisions in a live environment.</p>
+      </div>
+    </div>
+
+    <a href="https://autodecode.in" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top:28px;display:inline-flex;">Explore Auto Decode</a>
+  </section>
+
+  <footer>
+    <div style="display:flex;justify-content:center;gap:28px;margin-bottom:18px;flex-wrap:wrap;">
+      <a class="footer-link" href="index.html">home</a>
+      <a class="footer-link" href="my-story.html">my story</a>
+      <a class="footer-link" href="professional-work.html">professional work</a>
+      <a class="footer-link" href="auto-decode.html">auto decode</a>
+      <a class="footer-link" href="contact.html">contact</a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);font-weight:400;">&copy; 2026 Akash Panwar - A personal portfolio of work, writing, and learning</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
