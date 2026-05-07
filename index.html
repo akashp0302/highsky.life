@@ -1709,6 +1709,187 @@
       }
     }
   </style>
+
+  <style id="approved-homepage-restore">
+    #hero {
+      min-height: calc(100vh - 20px) !important;
+      padding: 118px 24px 56px !important;
+    }
+
+    .editorial-hero-card {
+      width: min(1120px, 100%);
+      min-height: 650px;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.9fr);
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      padding: 74px 0 74px 70px;
+      max-width: 650px;
+    }
+
+    .hero-heading {
+      max-width: 640px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+    }
+
+    .hero-heading .highlight {
+      color: transparent;
+      background: linear-gradient(135deg, #f8fbff 0%, #93c5fd 35%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 10px 30px rgba(59,130,246,0.22));
+    }
+
+    .hero-sub {
+      max-width: 560px;
+      color: rgba(226,232,240,0.76);
+    }
+
+    .hero-image-panel {
+      position: relative;
+      display: block;
+      min-height: 650px;
+      overflow: hidden;
+    }
+
+    .hero-image-panel img {
+      position: absolute;
+      right: 4px;
+      bottom: 0;
+      z-index: 1;
+      width: min(88%, 430px);
+      height: 96%;
+      object-fit: contain;
+      object-position: right bottom;
+      opacity: 0.98;
+      filter: saturate(1.02) contrast(1.03);
+    }
+
+    .hero-identity-card,
+    .metrics-strip,
+    .about-intro {
+      display: none !important;
+    }
+
+    .explore-home {
+      max-width: 1120px;
+      padding: 100px 24px 130px;
+    }
+
+    .explore-home .eyebrow,
+    .explore-home .sec-title,
+    .explore-home .sec-desc {
+      text-align: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .explore-home .sec-title {
+      max-width: 760px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.08;
+    }
+
+    .explore-home .sec-desc {
+      max-width: 620px;
+      font-size: 18px;
+    }
+
+    .home-links-grid {
+      margin-top: 64px;
+    }
+
+    .home-page .explore-card {
+      min-height: 320px;
+      border-radius: 24px;
+    }
+
+    @media (max-width: 1040px) {
+      .editorial-hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 64px 54px 30px;
+      }
+
+      .hero-image-panel {
+        min-height: 430px;
+      }
+
+      .hero-image-panel img {
+        right: 50%;
+        transform: translateX(50%);
+        width: min(62%, 360px);
+        height: 100%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #hero {
+        padding: 104px 18px 52px !important;
+      }
+
+      .editorial-hero-card {
+        border-radius: 28px;
+      }
+
+      .hero-copy {
+        padding: 54px 24px 30px;
+      }
+
+      .hero-heading {
+        max-width: 340px;
+        font-size: clamp(44px, 12vw, 56px);
+        line-height: 1.04;
+        letter-spacing: -1.4px;
+      }
+
+      .hero-actions {
+        gap: 12px;
+      }
+
+      .hero-cta {
+        flex: 1 1 148px;
+        min-width: 0;
+        padding: 0 14px;
+        text-align: center;
+      }
+
+      .hero-image-panel {
+        min-height: 360px;
+      }
+
+      .hero-image-panel img {
+        width: min(72%, 310px);
+      }
+
+      .explore-home {
+        padding: 78px 24px 100px;
+      }
+
+      .home-page .explore-card {
+        min-height: 250px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-image-panel {
+        display: block;
+        min-height: 330px;
+      }
+
+      .hero-image-panel img {
+        width: min(82%, 290px);
+      }
+    }
+  </style>
 </head>
 <body class="home-page">
 
@@ -1750,61 +1931,20 @@
           <div class="hero-kicker">Senior Business Analyst</div>
         </div>
         <h1 class="hero-heading">
-          <span class="desktop-title">A sharper home for a long journey.</span>
-          <span class="mobile-title">A sharper home for a long journey.</span>
+          <span class="desktop-title">I'm Akash,<br><span class="article">a</span> <span class="role-word highlight">Business Analyst</span></span>
+          <span class="mobile-title">I'm Akash,<br><span class="article">a</span> <span class="role-word highlight">Business Analyst</span></span>
         </h1>
         <p class="hero-sub">
-          Akash Panwar &mdash; Senior Business Analyst, co-founder of Auto Decode, and a believer in clarity over complexity.
+          Senior Business Analyst building real-world workflow solutions across Power Platform, automation, and digital business.
         </p>
         <div class="hero-actions">
-          <a class="hero-cta primary" href="my-story.html">Read My Story</a>
-          <a class="hero-cta secondary" href="professional-work.html">See My Work</a>
+          <a class="hero-cta primary" href="my-story.html">Explore My Story</a>
+          <a class="hero-cta secondary" href="professional-work.html">View Professional Work</a>
         </div>
       </div>
       <div class="hero-image-panel" aria-hidden="true">
         <img src="akash-panwar.png" alt="">
-        <div class="hero-identity-card">
-          <strong>Business analysis<br>Power Platform<br>Auto Decode</strong>
-          <span>Personal site, work archive, and build log.</span>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <div class="section-divider" aria-hidden="true"></div>
-
-  <section class="metrics-strip" aria-label="Professional metrics">
-    <div class="metrics-grid">
-      <div class="metric-item">
-        <div class="metric-value" data-count="6" data-suffix="+">0+</div>
-        <div class="metric-label">Years Experience</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-value" data-count="200" data-suffix="+">0+</div>
-        <div class="metric-label">Workflows Delivered</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-value" data-count="20" data-suffix="+">0+</div>
-        <div class="metric-label">Apps Built</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-value" data-count="500" data-suffix="+">0+</div>
-        <div class="metric-label">Users Supported</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-value" data-count="95" data-suffix="%">0%</div>
-        <div class="metric-label">Adoption Achieved</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" aria-hidden="true"></div>
-
-  <section class="about-intro">
-    <div class="about-panel">
-      <div class="about-eyebrow">About</div>
-      <p class="about-lead">I'm Akash. I grew up in a village in Shamli, studied in Meerut, and now live in Noida &mdash; working as a Senior Business Analyst by day and building Auto Decode on the side.</p>
-      <p>This site isn't a pitch. It's a place where I keep my journey, my work, and the small lessons that have shaped how I think &mdash; written honestly, updated slowly, and meant to last.</p>
     </div>
   </section>
 
@@ -1812,7 +1952,7 @@
 
   <section class="reveal-section explore-home" id="explore-section">
     <div class="eyebrow">Explore</div>
-    <h2 class="sec-title">Three doors into the same journey.</h2>
+    <h2 class="sec-title">Choose Where You Want to Start</h2>
     <p class="sec-desc">A simple way to explore my story, professional work, and entrepreneurial journey.</p>
 
     <div class="home-links-grid">
@@ -1863,41 +2003,6 @@
     <p style="font-size:12.5px;color:var(--muted);font-weight:400;">&copy; 2026 Akash Panwar &mdash; A personal space for work, writing, and learning.</p>
   </footer>
 
-  <script>
-    (() => {
-      const metrics = document.querySelectorAll('.metric-value[data-count]');
-      if (!metrics.length) return;
-
-      const animateMetric = (node) => {
-        if (node.dataset.done) return;
-        node.dataset.done = 'true';
-        const target = Number(node.dataset.count || 0);
-        const suffix = node.dataset.suffix || '';
-        const duration = 850;
-        const start = performance.now();
-
-        const step = (now) => {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          node.textContent = `${Math.round(target * eased)}${suffix}`;
-          if (progress < 1) requestAnimationFrame(step);
-        };
-
-        requestAnimationFrame(step);
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateMetric(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.45 });
-
-      metrics.forEach((metric) => observer.observe(metric));
-    })();
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
